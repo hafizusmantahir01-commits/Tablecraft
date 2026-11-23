@@ -1,0 +1,36 @@
+// ===== android/app/build.gradle.kts : three small additions =====
+
+// (1) At the very TOP of the file, above plugins { ... }:
+import java.io.FileInputStream
+import java.util.Properties
+
+// (2) Right AFTER the plugins { ... } block:
+// Signing details live in android/key.properties (never commit that file).
+val keystoreProperties = Properties()
+val keystorePropertiesFile = rootProject.file("key.properties")
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+}
+
+// (3) Inside android { ... }:
+//   - check:  namespace = "com.inovexa.tablecraft"
+//   - check:  applicationId = "com.inovexa.tablecraft"   (inside defaultConfig)
+//   - add this signingConfigs block, and REPLACE the existing buildTypes block:
+    signingConfigs {
+        if (keystorePropertiesFile.exists()) {
+            create("release") {
+                keyAlias = keystoreProperties["keyAlias"] as String
+                keyPassword = keystoreProperties["keyPassword"] as String
+                storeFile = file(keystoreProperties["storeFile"] as String)
+                storePassword = keystoreProperties["storePassword"] as String
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            // With key.properties  -> signed release APK/AAB.
+            // Without key.properties -> unsigned release APK (app-release-unsigned.apk).
+            signingConfig = if (keystorePropertiesFile.exists()) signingConfigs.getByName("release") else null
+        }
+    }
