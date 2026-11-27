@@ -7,6 +7,42 @@ A relaxing jigsaw puzzle game made with Flutter. Runs on Android, iOS and the we
 - Release steps (signing, APK, AAB, store files, Git): see `RELEASE_GUIDE.md`
 - Test checklist (including back-button navigation): see `TESTING.md`
 
+
+<p align="center">
+  <img src="docs/images/icon-512.png" width="120" alt="Tablecraft app icon">
+</p>
+
+<p align="center">
+  <img src="docs/images/feature-graphic-1024x500.png" width="800" alt="Tablecraft feature graphic">
+</p>
+
+## App screens
+
+| | | |
+|:---:|:---:|:---:|
+| <img src="docs/images/mockups/mockup-01-splash.png" width="240" alt="Splash"> | <img src="docs/images/mockups/mockup-02-levels.png" width="240" alt="Levels"> | <img src="docs/images/mockups/mockup-03-how-hard.png" width="240" alt="How hard"> |
+| <img src="docs/images/mockups/mockup-04-game.png" width="240" alt="Game"> | <img src="docs/images/mockups/mockup-05-time-up.png" width="240" alt="Time's up"> | <img src="docs/images/mockups/mockup-06-complete.png" width="240" alt="Level complete"> |
+| <img src="docs/images/mockups/mockup-07-daily.png" width="240" alt="Daily"> | <img src="docs/images/mockups/mockup-08-create.png" width="240" alt="Create"> | <img src="docs/images/mockups/mockup-09-me.png" width="240" alt="Me"> |
+
+## Google Play screenshots (1080 x 1920)
+
+| | | |
+|:---:|:---:|:---:|
+| <img src="docs/images/screenshots/screenshot-1.png" width="240" alt="Real jigsaw pieces"> | <img src="docs/images/screenshots/screenshot-2.png" width="240" alt="100 levels"> | <img src="docs/images/screenshots/screenshot-3.png" width="240" alt="Daily puzzle"> |
+| <img src="docs/images/screenshots/screenshot-4.png" width="240" alt="Your photos"> | <img src="docs/images/screenshots/screenshot-5.png" width="240" alt="Stars and trophies"> | <img src="docs/images/screenshots/screenshot-6.png" width="240" alt="Profile"> |
+
+## Mockup
+
+<p align="center">
+  <img src="docs/images/mockup-design-1920x1080.png" width="800" alt="Tablecraft mockup">
+</p>
+
+## Icon preview
+
+<p align="center">
+  <img src="docs/images/icon-preview.png" width="600" alt="Icon in different launcher shapes">
+</p>
+
 ## First-time setup (once)
 
 ```bash
@@ -67,7 +103,8 @@ flutter build web           # Web → upload the build/web folder to any static 
 - `tool`            scripts that make the level pictures, sound effects and Play Store graphics
 - `release`         signing templates and privacy_policy.html
 - `store_assets`    icon, feature graphic, screenshots for Google Play
+- `docs/images`     the same pictures, shown in this README
 
 ## Pictures
-The 50 level pictures are `assets/puzzles/level_01.jpg` ... `level_50.jpg` (made by `tool/make_level_images.py`).
+The 100 level pictures are `assets/puzzles/level_01.jpg` ... `level_100.jpg` (made by `tool/make_level_images.py`).
 Replace any of them with a real photo of the same name (square is best). Level names and chapters are in `lib/data/levels.dart`.
